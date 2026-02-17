@@ -1,8 +1,8 @@
 ---
-icon: simple/markdown
+icon: lucide/file-code
 ---
 
-# Markdown in 5min
+# How to write a Distrorun file
 
 ## Headers
 ```
