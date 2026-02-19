@@ -354,56 +354,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#distrorun-validate" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        distrorun validate
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="distrorun validate">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#usage_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Usage
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -557,56 +507,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#distrorun-validate" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        distrorun validate
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="distrorun validate">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#usage_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Usage
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -683,67 +583,33 @@
 <li><code>--help</code>, <code>-h</code>: Print the help menu for the current command.</li>
 </ul>
 <hr />
-<h2 id="distrorun-build"><code>distrorun build</code><a class="headerlink" href="#distrorun-build" title="Permanent link">&para;</a></h2>
-<p>The core command of the engine. It reads your YAML file. sets up the isolated namespaces (chroot), fetches the packages, applies configurations, and generates the final bootable ISO and SBOM.</p>
+<h2 id="distrorun-build">distrorun build<a class="headerlink" href="#distrorun-build" title="Permanent link">&para;</a></h2>
+<p>The core command of the engine. It reads your YAML file. sets up the isolated namespaces, fetches the packages, applies configurations, and generates the final bootable ISO and SBOM.</p>
 <blockquote>
 <p><strong>Privilege Escalation:</strong> Because DistroRun utilizes low-level Linux system primitives (like mounting <code>/proc</code> and creating namespaces), the <code>build</code> command must be run with <code>root</code> privileges.</p>
 </blockquote>
 <h3 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>distrorun<span class="w"> </span>build<span class="w"> </span><span class="o">[</span>flags<span class="o">]</span>
+<div class="language-css highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">sudo</span><span class="w"> </span><span class="nt">distrorun</span><span class="w"> </span><span class="nt">build</span><span class="w"> </span><span class="o">[</span><span class="nt">flags</span><span class="o">]</span>
 </span></code></pre></div>
 <h3 id="flags">Flags<a class="headerlink" href="#flags" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>-f, --file string</code>: Path to the configuration file (default: <code>./distro.yaml</code>)</li>
-<li><code>-o, --out-dir string</code>: Output directory for the generated ISO and SBOM (default: <code>./build</code>)</li>
 <li><code>--no-cache</code>: Force a fresh download of all base images and packages, ignoring the local squashfs cache.</li>
 </ul>
-<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Build the OS with debug logs enabled</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>distrorun<span class="w"> </span>build<span class="w"> </span>-f<span class="w"> </span>./production/web-node.yaml<span class="w"> </span>--out-dir<span class="w"> </span>./artifacts<span class="w"> </span>-d
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Expected Output:</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># [INFO] Parsing web-node.yaml... Valid.</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># [INFO] Target OS: fedora (server)</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># [INFO] Creating isolated build namespace...</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># [INFO] Fetching packages via DNF...</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1"># [INFO] Generating SBOM (SPDX format)...</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># [SUCCESS] ISO generated at ./artifacts/web-node.iso</span>
-</span></code></pre></div>
 <hr />
-<h2 id="distrorun-validate"><code>distrorun validate</code><a class="headerlink" href="#distrorun-validate" title="Permanent link">&para;</a></h2>
-<p>Parses and validates your declarative YAML file without executing a build. This command checks the file against the DistroRun JSON Schema to catch typos, missing required fields (like passwords), or invalid package configurations.</p>
-<p><em>Note: Unlike <code>build</code>, this command runs purely statically and does <strong>not</strong> require root privileges.</em></p>
-<h3 id="usage_1">Usage<a class="headerlink" href="#usage_1" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>distrorun<span class="w"> </span>validate<span class="w"> </span>-f<span class="w"> </span>&lt;path-to-yaml&gt;
-</span></code></pre></div>
-<h3 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>distrorun<span class="w"> </span>validate<span class="w"> </span>-f<span class="w"> </span>./distro.yaml
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># Expected Output:</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1">#  Validation passed. The configuration is strictly compliant.</span>
-</span></code></pre></div>
-<blockquote>
-<p>** CI/CD Tip:** Add <code>distrorun validate</code> to your GitHub Actions or GitLab CI pipelines to automatically test pull requests before attempting to build them.</p>
-</blockquote>
-<hr />
-<h2 id="distrorun-registry"><code>distrorun registry</code><a class="headerlink" href="#distrorun-registry" title="Permanent link">&para;</a></h2>
+<h2 id="distrorun-registry">distrorun registry<a class="headerlink" href="#distrorun-registry" title="Permanent link">&para;</a></h2>
 <p>DistroRun includes built-in commands to interact with your team's Zensical-powered artifact registry. This allows you to treat OS configurations like Docker images.</p>
-<h3 id="distrorun-registry-push"><code>distrorun registry push</code><a class="headerlink" href="#distrorun-registry-push" title="Permanent link">&para;</a></h3>
+<h3 id="distrorun-registry-push">distrorun registry push<a class="headerlink" href="#distrorun-registry-push" title="Permanent link">&para;</a></h3>
 <p>Uploads your <code>distro.yaml</code> and its generated SBOM to the registry.</p>
 <p><strong>Usage:</strong></p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>distrorun<span class="w"> </span>registry<span class="w"> </span>push<span class="w"> </span>&lt;username&gt;/&lt;project&gt;:&lt;tag&gt;<span class="w"> </span>-f<span class="w"> </span>&lt;path-to-yaml&gt;<span class="w"> </span>--sbom<span class="w"> </span>&lt;path-to-sbom&gt;
+<div class="language-css highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">distrorun</span><span class="w"> </span><span class="nt">registry</span><span class="w"> </span><span class="nt">push</span><span class="w"> </span><span class="o">&lt;</span><span class="nt">username</span><span class="o">&gt;/&lt;</span><span class="nt">project</span><span class="o">&gt;:&lt;</span><span class="nt">tag</span><span class="o">&gt;</span><span class="w"> </span>
 </span></code></pre></div>
-<p><strong>Example:</strong></p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>distrorun<span class="w"> </span>registry<span class="w"> </span>push<span class="w"> </span>marsa-maroc/core-web:v1.0.4<span class="w"> </span>-f<span class="w"> </span>./distro.yaml<span class="w"> </span>--sbom<span class="w"> </span>./build/sbom.spdx.json
-</span></code></pre></div>
-<h3 id="distrorun-registry-pull"><code>distrorun registry pull</code><a class="headerlink" href="#distrorun-registry-pull" title="Permanent link">&para;</a></h3>
+<h3 id="distrorun-registry-pull">distrorun registry pull<a class="headerlink" href="#distrorun-registry-pull" title="Permanent link">&para;</a></h3>
 <p>Retrieves a configuration from the registry and saves it locally, allowing you to seamlessly reproduce a colleague's build.</p>
 <p><strong>Usage:</strong></p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>distrorun<span class="w"> </span>registry<span class="w"> </span>pull<span class="w"> </span>&lt;username&gt;/&lt;project&gt;:&lt;tag&gt;
+<div class="language-css highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">distrorun</span><span class="w"> </span><span class="nt">registry</span><span class="w"> </span><span class="nt">pull</span><span class="w"> </span><span class="o">&lt;</span><span class="nt">username</span><span class="o">&gt;/&lt;</span><span class="nt">project</span><span class="o">&gt;:&lt;</span><span class="nt">tag</span><span class="o">&gt;</span>
 </span></code></pre></div>
 <p><strong>Example:</strong></p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>distrorun<span class="w"> </span>registry<span class="w"> </span>pull<span class="w"> </span>marsa-maroc/core-web:v1.0.4
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1"># Downloads core-web.yaml to your current directory</span>
+<div class="language-css highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">distrorun</span><span class="w"> </span><span class="nt">registry</span><span class="w"> </span><span class="nt">pull</span><span class="w"> </span><span class="nt">companyxyz</span><span class="o">/</span><span class="nt">nginx-server</span><span class="p">:</span><span class="nd">v1</span><span class="p">.</span><span class="nc">0</span><span class="p">.</span><span class="nc">4</span>
 </span></code></pre></div>
 
 
