@@ -19,9 +19,10 @@ For Fedora, the `type` field is mandatory to determine the base overlay (e.g., `
 
 ```yaml
 version: "1"
+name: my-fedora-server
 
 distro:
-  name: fedora
+  base: fedora
   type: server
 
 packages:
@@ -47,9 +48,10 @@ For a desktop environment, set `type` to `workstation`. This instructs the engin
 
 ```yaml
 version: "1"
+name: my-fedora-workstation
 
 distro:
-  name: fedora
+  base: fedora
   type: workstation
 
 packages:
@@ -75,9 +77,10 @@ For Alpine Linux, the `type` field is omitted. By design, DistroRun treats Alpin
 
 ```yaml
 version: "1"
+name: my-alpine-server
 
 distro:
-  name: alpine
+  base: alpine
 
 packages:
   - nginx
@@ -104,13 +107,19 @@ build:
 
 The version of your configuration file. This follows semantic versioning and can be any valid version string (e.g., `"1"`, `"1.0"`, `"1.0.12"`).
 
+### `name`
+
+**Type:** `string` | **Required:** Yes
+
+A human-readable name for your build configuration (e.g., `my-fedora-server`, `production-alpine`).
+
 ### `distro`
 
 Defines the target operating system and its architecture profile. DistroRun automatically injects the necessary base packages (like the kernel, bootloader, and init system) based on this selection.
 
 | Key | Type | Description |
 | --- | --- | --- |
-| `name` | `string` | The target distribution. Supported values: `fedora`, `alpine`. |
+| `base` | `string` | The target distribution. Supported values: `fedora`, `alpine`. |
 | `type` | `string` | The system profile. Required for `fedora` (`server` or `workstation`). Ignored for `alpine`. |
 
 ### `packages`
