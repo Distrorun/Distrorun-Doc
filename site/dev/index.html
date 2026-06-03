@@ -1,0 +1,1696 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Full documentation of the Distrorun project">
+      
+      
+        <meta name="author" content="Distrorun Team">
+      
+      
+      
+        <link rel="prev" href="./..">
+      
+      
+        <link rel="next" href="../run/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.23">
+    
+    
+      
+        <title>Developer Guide - Distrorun documentation</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.1e989742.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#developer-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="Distrorun documentation" class="md-header__button md-logo" aria-label="Distrorun documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Distrorun documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Developer Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Distrorun documentation" class="md-nav__button md-logo" aria-label="Distrorun documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    Distrorun documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-download" viewBox="0 0 24 24"><path d="M12 15V3M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli-dispatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI dispatch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-build-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Build Pipeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Build Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-parse-configuration-internalconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Parse configuration (internal/config)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-check-host-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Check host dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-bootstrap-rootfs-internalrootfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Bootstrap rootfs (internal/rootfs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-install-user-packages-internalrootfspackagesgo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Install user packages (internal/rootfs/packages.go)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-set-up-users-internalrootfsusersgo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — Set up users (internal/rootfs/users.go)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-enable-services-internalrootfsservicesgo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6 — Enable services (internal/rootfs/services.go)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-optional-generate-sbom-internalsbom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7 (optional) — Generate SBOM (internal/sbom)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-set-up-bootloader-prepare-staging-internalbootloader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8 — Set up bootloader / prepare staging (internal/bootloader)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-build-final-artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 9 — Build final artifact
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 9 — Build final artifact">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iso-alpine-isobuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iso (Alpine — iso.Build)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iso-fedora-isobuildfedora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iso (Fedora — iso.BuildFedora)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disk-diskbuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        disk (disk.Build)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#img-isobuildimg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        img (iso.BuildImg)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-custom-live-cd-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The custom live-CD init
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleanup-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cleanup safety
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ui-system-internalui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UI System (internal/ui)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Packaging
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Packaging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rpm-deb-nfpm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RPM / DEB (nfpm)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#man-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Man page
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-design-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Design Decisions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Design Decisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-chroot-instead-of-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why chroot instead of containers?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-grub2-for-fedora-and-isolinux-for-alpine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why GRUB2 for Fedora and ISOLINUX for Alpine?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-overlayfs-for-live-cds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why overlayfs for live CDs?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-dynamic-alpine-version-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why dynamic Alpine version discovery?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-disable-selinux-on-fedora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why disable SELinux on Fedora?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-patch-the-initramfs-ourselves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why patch the initramfs ourselves?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-a-new-base-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding a new base distribution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running tests
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../run/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-terminal" viewBox="0 0 24 24"><path d="m7 11 2-2-2-2M11 13h4"/><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../yamlfile/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-file-code" viewBox="0 0 24 24"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5M10 12.5 8 15l2 2.5M14 12.5l2 2.5-2 2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    How to write a Distrorun file
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli-dispatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI dispatch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-build-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Build Pipeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Build Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-parse-configuration-internalconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Parse configuration (internal/config)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-check-host-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Check host dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-bootstrap-rootfs-internalrootfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Bootstrap rootfs (internal/rootfs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-install-user-packages-internalrootfspackagesgo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Install user packages (internal/rootfs/packages.go)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-set-up-users-internalrootfsusersgo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — Set up users (internal/rootfs/users.go)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-enable-services-internalrootfsservicesgo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6 — Enable services (internal/rootfs/services.go)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-optional-generate-sbom-internalsbom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7 (optional) — Generate SBOM (internal/sbom)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-set-up-bootloader-prepare-staging-internalbootloader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8 — Set up bootloader / prepare staging (internal/bootloader)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-build-final-artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 9 — Build final artifact
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 9 — Build final artifact">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iso-alpine-isobuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iso (Alpine — iso.Build)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iso-fedora-isobuildfedora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iso (Fedora — iso.BuildFedora)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disk-diskbuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        disk (disk.Build)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#img-isobuildimg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        img (iso.BuildImg)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-custom-live-cd-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The custom live-CD init
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleanup-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cleanup safety
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ui-system-internalui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UI System (internal/ui)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Packaging
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Packaging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rpm-deb-nfpm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RPM / DEB (nfpm)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#man-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Man page
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-design-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Design Decisions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Design Decisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-chroot-instead-of-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why chroot instead of containers?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-grub2-for-fedora-and-isolinux-for-alpine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why GRUB2 for Fedora and ISOLINUX for Alpine?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-overlayfs-for-live-cds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why overlayfs for live CDs?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-dynamic-alpine-version-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why dynamic Alpine version discovery?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-disable-selinux-on-fedora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why disable SELinux on Fedora?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-patch-the-initramfs-ourselves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why patch the initramfs ourselves?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-a-new-base-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding a new base distribution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running tests
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="developer-guide">Developer Guide<a class="headerlink" href="#developer-guide" title="Permanent link">&para;</a></h1>
+<p>This document explains <strong>how the DistroRun engine works internally</strong> — the build pipeline, the per-distro divergences, and the design decisions behind each. If you want to contribute, extend the engine to a new distribution, or just understand what happens when you type <code>distrorun build</code>, start here.</p>
+<hr />
+<h2 id="project-structure">Project Structure<a class="headerlink" href="#project-structure" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Distrorun/
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── main.go                         # CLI entry point + pipeline orchestration
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── go.mod / go.sum
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── Makefile                        # build / rpm / deb targets
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├── nfpm.yaml                       # RPM/DEB packaging config
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>├── distrorun.1                     # man page (groff)
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>├── sample.distrorun.yaml           # example config
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>└── internal/
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    ├── config/
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    │   ├── config.go               # YAML structs + accessor methods
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    │   ├── validate.go             # validation
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    │   └── config_test.go
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    ├── rootfs/
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    │   ├── bootstrap.go            # Alpine bootstrap + shared helpers
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    │   ├── fedora.go               # Fedora bootstrap (dnf --installroot, dracut, init patching)
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    │   ├── packages.go             # apk/dnf user-package install
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    │   ├── users.go                # user creation + chpasswd hashing
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    │   ├── services.go             # rc-update / systemctl enable
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    │   ├── initramfs.go            # custom live-CD init script + Alpine initramfs patching
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    │   └── cleanup.go              # safe unmounting + rootfs cleanup
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    ├── bootloader/
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    │   ├── syslinux.go             # ISOLINUX (BIOS) — used by Alpine
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    │   └── grub.go                 # GRUB2 BIOS — used by Fedora ISO and disk/img modes
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>    ├── iso/
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>    │   ├── build.go                # squashfs + xorriso (ISO mode)
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>    │   └── img.go                  # raw USB image with persistence (img mode)
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>    ├── disk/
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>    │   └── build.go                # qcow2 disk image (disk mode)
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>    ├── registry/
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>    │   ├── client.go               # push/pull HTTP client
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>    │   └── credentials.go          # login/logout token storage
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>    ├── sbom/
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>    │   └── sbom.go                 # SPDX 2.3 JSON (Trivy or apk fallback)
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>    └── ui/
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>        └── ui.go                   # lipgloss styling + spinner
+</span></code></pre></div>
+<p>Every package lives under <code>internal/</code> — the standard Go convention for "implementation, not API". The only exported entry point is <code>main.go</code>.</p>
+<hr />
+<h2 id="cli-dispatch">CLI dispatch<a class="headerlink" href="#cli-dispatch" title="Permanent link">&para;</a></h2>
+<p><code>main.go</code> switches on <code>os.Args[1]</code>:</p>
+<ul>
+<li><code>build</code> → <code>runBuild()</code> — the focus of this guide.</li>
+<li><code>test</code> → <code>runTest()</code> — launches QEMU.</li>
+<li><code>login</code> / <code>logout</code> / <code>push</code> / <code>pull</code> → registry commands.</li>
+<li><code>version</code>, <code>help</code> — informational.</li>
+</ul>
+<p>Run with <code>-d</code> or <code>--debug</code> on <code>build</code> to stream package-manager output instead of showing a spinner.</p>
+<hr />
+<h2 id="the-build-pipeline">The Build Pipeline<a class="headerlink" href="#the-build-pipeline" title="Permanent link">&para;</a></h2>
+<p>When you run <code>sudo distrorun build config.yaml</code>, the engine executes a sequence of steps. The exact step count is <strong>8</strong> (or <strong>9</strong> if <code>build.sbom: true</code>), and several steps fork on <code>cfg.Distro.Base</code> and <code>cfg.OutputMode()</code>.</p>
+<h3 id="step-1-parse-configuration-internalconfig">Step 1 — Parse configuration (<code>internal/config</code>)<a class="headerlink" href="#step-1-parse-configuration-internalconfig" title="Permanent link">&para;</a></h3>
+<p>YAML → Go structs via <code>gopkg.in/yaml.v3</code>:</p>
+<div class="language-go highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">type</span><span class="w"> </span><span class="nx">Config</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nx">Version</span><span class="w">  </span><span class="kt">string</span><span class="w">    </span><span class="s">`yaml:&quot;version&quot;`</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nx">Name</span><span class="w">     </span><span class="kt">string</span><span class="w">    </span><span class="s">`yaml:&quot;name&quot;`</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nx">Distro</span><span class="w">   </span><span class="nx">Distro</span><span class="w">    </span><span class="s">`yaml:&quot;distro&quot;`</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nx">Packages</span><span class="w"> </span><span class="p">[]</span><span class="kt">string</span><span class="w">  </span><span class="s">`yaml:&quot;packages&quot;`</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nx">Users</span><span class="w">    </span><span class="p">[]</span><span class="nx">User</span><span class="w">    </span><span class="s">`yaml:&quot;users&quot;`</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nx">Services</span><span class="w"> </span><span class="o">*</span><span class="nx">Services</span><span class="w"> </span><span class="s">`yaml:&quot;services&quot;`</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="nx">Build</span><span class="w">    </span><span class="o">*</span><span class="nx">Build</span><span class="w">    </span><span class="s">`yaml:&quot;build&quot;`</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="kd">type</span><span class="w"> </span><span class="nx">Build</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="nx">SBOM</span><span class="w">        </span><span class="kt">bool</span><span class="w">   </span><span class="s">`yaml:&quot;sbom&quot;`</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="nx">Output</span><span class="w">      </span><span class="kt">string</span><span class="w"> </span><span class="s">`yaml:&quot;output&quot;`</span><span class="w">        </span><span class="c1">// &quot;iso&quot; | &quot;disk&quot; | &quot;img&quot;</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="nx">DiskSize</span><span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="s">`yaml:&quot;disk_size&quot;`</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="nx">PersistSize</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="s">`yaml:&quot;persist_size&quot;`</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Validation collects errors and returns them all at once. Required:</p>
+<ul>
+<li><code>version</code>, <code>name</code>, <code>distro.base</code> are present.</li>
+<li><code>distro.base ∈ {alpine, fedora}</code>.</li>
+<li>If <code>distro.base == fedora</code>, <code>distro.type</code> (when set) is <code>server</code> or <code>workstation</code>.</li>
+<li>At least one user with both <code>name</code> and <code>password</code>.</li>
+<li><code>build.output</code> (when set) is one of <code>iso</code>, <code>disk</code>, <code>img</code>.</li>
+</ul>
+<h3 id="step-2-check-host-dependencies">Step 2 — Check host dependencies<a class="headerlink" href="#step-2-check-host-dependencies" title="Permanent link">&para;</a></h3>
+<p>Forks on <code>cfg.OutputMode()</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Output mode</th>
+<th>Function</th>
+<th>Checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>disk</code></td>
+<td><code>disk.CheckDiskDeps</code></td>
+<td><code>qemu-img</code>, <code>sfdisk</code>, <code>losetup</code>, <code>mkfs.ext4</code>, <code>grub2-install</code>, <code>grub2-mkconfig</code></td>
+</tr>
+<tr>
+<td><code>img</code></td>
+<td><code>iso.CheckImgDeps</code></td>
+<td><code>qemu-img</code>, <code>sfdisk</code>, <code>losetup</code>, <code>mkfs.ext2</code>, <code>mkfs.ext4</code>, <code>mksquashfs</code>, <code>grub2-install</code></td>
+</tr>
+<tr>
+<td><code>iso</code> (Fedora)</td>
+<td><code>iso.CheckFedoraDeps</code></td>
+<td><code>xorriso</code>, <code>mksquashfs</code>, <code>dnf</code>, <code>grub2-mkimage</code></td>
+</tr>
+<tr>
+<td><code>iso</code> (Alpine)</td>
+<td><code>iso.CheckHostDeps</code></td>
+<td><code>xorriso</code>, <code>mksquashfs</code>, ISOLINUX files (<code>isohdpfx.bin</code> is optional but warned)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="step-3-bootstrap-rootfs-internalrootfs">Step 3 — Bootstrap rootfs (<code>internal/rootfs</code>)<a class="headerlink" href="#step-3-bootstrap-rootfs-internalrootfs" title="Permanent link">&para;</a></h3>
+<p>Forks on <code>cfg.Distro.Base</code> and <code>cfg.OutputMode()</code>.</p>
+<p><strong>Alpine</strong> (<code>Bootstrap</code>):</p>
+<ol>
+<li>Discover the latest minirootfs filename by parsing <code>https://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/&lt;arch&gt;/latest-releases.yaml</code>.</li>
+<li>Download tarball (~3 MB) → <code>/tmp/distrorun-&lt;name&gt;/minirootfs.tar.gz</code>.</li>
+<li>Extract into the rootfs dir.</li>
+<li>Bind-mount <code>/proc</code>, <code>/dev</code>, <code>/sys</code> into the rootfs.</li>
+<li>Copy host <code>/etc/resolv.conf</code> (so <code>apk</code> can resolve mirrors).</li>
+<li>Configure <code>/etc/apk/repositories</code>, run <code>apk update</code>, install <code>alpineBasePackages</code> (<code>alpine-base</code>, <code>linux-lts</code>, <code>linux-firmware-none</code>, <code>mkinitfs</code>, <code>openrc</code>, <code>e2fsprogs</code>, <code>bash</code>, <code>shadow</code>).</li>
+<li>Configure networking (<code>/etc/network/interfaces</code> with DHCP on eth0).</li>
+<li>Configure mkinitfs features for live CD (<code>features="ata base cdrom scsi squashfs usb virtio loop network"</code>).</li>
+<li>Generate initramfs via <code>mkinitfs</code>.</li>
+<li>Patch the initramfs (<code>PatchInitramfs</code>): replace <code>/init</code> with our live-CD init script, repack as gzip cpio.</li>
+</ol>
+<p><strong>Fedora</strong> (<code>BootstrapFedora</code> for ISO, <code>BootstrapFedoraDisk</code> for disk):</p>
+<ol>
+<li>Bind-mount <code>/proc</code>, <code>/dev</code>, <code>/sys</code> first (RPM scriptlets need them during <code>dnf --installroot</code>).</li>
+<li><code>dnf install --installroot=&lt;rootfs&gt; --releasever=43 --use-host-config --setopt=install_weak_deps=False --setopt=tsflags=nodocs --nogpgcheck -y &lt;packages&gt;</code>.</li>
+<li>Server packages: kernel, systemd, dracut, NetworkManager, openssh, sudo, busybox, dnf, util-linux, etc.</li>
+<li>Workstation = server packages + GNOME stack (gdm, gnome-shell, firefox, xorg).</li>
+<li>Without <code>-d</code>, dnf runs with <code>-q</code> and stdout is dropped — a spinner is shown via <code>ui.NewSpinner</code>.</li>
+<li>Copy host <code>/etc/resolv.conf</code>.</li>
+<li>Write a NetworkManager DHCP connection at <code>/etc/NetworkManager/system-connections/dhcp.nmconnection</code>. Enable NetworkManager via <code>systemctl enable</code>.</li>
+<li>Set hostname from the first user's name.</li>
+<li>Write a custom <code>/etc/os-release</code>, <code>/etc/issue</code>, <code>/etc/motd</code> (DistroRun branding).</li>
+<li>Write <code>/etc/selinux/config</code> with <code>SELINUX=disabled</code> (avoids autorelabel hang on first boot).</li>
+<li><strong>ISO mode only:</strong> generate a fresh initramfs via <code>dracut --compress=gzip --no-hostonly --add-drivers "squashfs loop iso9660 overlay sr_mod cdrom ata_piix ahci virtio_blk virtio_pci virtio_scsi"</code>, then patch it: extract → inject busybox + applet symlinks → replace <code>/init</code> with the live-CD script → repack.</li>
+<li><strong>Disk mode</strong> skips the initramfs patching step entirely — dracut's stock initramfs (built by the kernel's <code>%posttrans</code> scriptlet) is already correct for normal disk boot.</li>
+</ol>
+<blockquote>
+<p>The Fedora <code>--releasever</code> is currently pinned to 43. To support a different release, change it in <code>internal/rootfs/fedora.go</code> and <code>internal/rootfs/packages.go</code>.</p>
+</blockquote>
+<h3 id="step-4-install-user-packages-internalrootfspackagesgo">Step 4 — Install user packages (<code>internal/rootfs/packages.go</code>)<a class="headerlink" href="#step-4-install-user-packages-internalrootfspackagesgo" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Fedora:</strong> <code>dnf install --installroot=&lt;rootfs&gt; ... &lt;packages&gt;</code> from the host (dnf isn't reliably present inside a freshly installed Fedora rootfs). Quiet by default; spinner during install.</li>
+<li><strong>Alpine:</strong> <code>chroot &lt;rootfs&gt; apk add --no-cache &lt;packages&gt;</code>. With <code>-d</code>, output is parsed by a custom <code>apkWriter</code> that prints styled <code>(N/M) name version</code> lines.</li>
+</ul>
+<h3 id="step-5-set-up-users-internalrootfsusersgo">Step 5 — Set up users (<code>internal/rootfs/users.go</code>)<a class="headerlink" href="#step-5-set-up-users-internalrootfsusersgo" title="Permanent link">&para;</a></h3>
+<p>For each user in the config:</p>
+<ul>
+<li>Non-root users:</li>
+<li>Fedora: <code>useradd -m -s /bin/bash -G wheel &lt;name&gt;</code> — the <code>wheel</code> group grants sudo via the default <code>/etc/sudoers</code> rule.</li>
+<li>Alpine: <code>adduser -D -s /bin/bash &lt;name&gt;</code>.</li>
+<li>Root: switch shell to bash via <code>sed</code> on <code>/etc/passwd</code>.</li>
+<li>All users: password set via <code>echo 'name:password' | chpasswd</code> (SHA-512).</li>
+</ul>
+<p>The first user's name is also written to <code>/etc/hostname</code>.</p>
+<h3 id="step-6-enable-services-internalrootfsservicesgo">Step 6 — Enable services (<code>internal/rootfs/services.go</code>)<a class="headerlink" href="#step-6-enable-services-internalrootfsservicesgo" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fedora: <code>chroot &lt;rootfs&gt; systemctl enable &lt;svc&gt;</code> for each.</li>
+<li>Alpine: <code>chroot &lt;rootfs&gt; rc-update add &lt;svc&gt; default</code>.</li>
+</ul>
+<h3 id="step-7-optional-generate-sbom-internalsbom">Step 7 (optional) — Generate SBOM (<code>internal/sbom</code>)<a class="headerlink" href="#step-7-optional-generate-sbom-internalsbom" title="Permanent link">&para;</a></h3>
+<p>Runs only if <code>build.sbom: true</code>. Output: <code>&lt;name&gt;-sbom.spdx.json</code>.</p>
+<ul>
+<li><strong>Trivy path</strong> (preferred): if <code>trivy</code> is on <code>PATH</code>, runs <code>trivy rootfs --format spdx-json -o &lt;out&gt; &lt;rootfs&gt;</code>.</li>
+<li><strong>Alpine fallback</strong>: parses <code>chroot &lt;rootfs&gt; apk info -v</code>, builds SPDX 2.3 JSON with <code>pkg:apk/alpine/&lt;name&gt;@&lt;version&gt;</code> purls and a root <code>SPDXRef-rootfs</code> package.</li>
+</ul>
+<h3 id="step-8-set-up-bootloader-prepare-staging-internalbootloader">Step 8 — Set up bootloader / prepare staging (<code>internal/bootloader</code>)<a class="headerlink" href="#step-8-set-up-bootloader-prepare-staging-internalbootloader" title="Permanent link">&para;</a></h3>
+<p>Right before this step the engine calls <code>rfs.Unmount()</code> then <code>rfs.CleanupRootfs()</code> (clear <code>/var/cache/{apk,dnf}</code>, <code>/dev/*</code>).</p>
+<p>Then forks on output mode:</p>
+<ul>
+<li><strong><code>disk</code></strong> — <code>disk.Build</code> does its own staging directly on a loop device (see Step 9).</li>
+<li><strong><code>iso</code> (Alpine)</strong> — <code>bootloader.Setup</code>: copies ISOLINUX files (<code>isolinux.bin</code>, <code>ldlinux.c32</code>, <code>libcom32.c32</code>), copies <code>vmlinuz-lts</code> and the patched <code>initramfs-lts</code> into <code>staging/boot/</code>, writes <code>isolinux.cfg</code>.</li>
+<li><strong><code>iso</code> (Fedora)</strong> — <code>bootloader.SetupGrub</code>: copies <code>vmlinuz-&lt;kver&gt;</code> and <code>initramfs-&lt;kver&gt;.img</code>, generates <code>eltorito.img</code> via <code>grub2-mkimage -O i386-pc-eltorito</code>, writes <code>grub.cfg</code>.</li>
+<li><strong><code>img</code></strong> — staging is built and bootloader installed inside <code>iso.BuildImg</code> (see Step 9).</li>
+</ul>
+<h3 id="step-9-build-final-artifact">Step 9 — Build final artifact<a class="headerlink" href="#step-9-build-final-artifact" title="Permanent link">&para;</a></h3>
+<p>Forks on output mode:</p>
+<h4 id="iso-alpine-isobuild"><code>iso</code> (Alpine — <code>iso.Build</code>)<a class="headerlink" href="#iso-alpine-isobuild" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mksquashfs rootfs staging/rootfs.squashfs -comp xz -no-xattrs -noappend
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>xorriso -as mkisofs \
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        -o &lt;out&gt;.iso \
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        -b isolinux/isolinux.bin -c isolinux/boot.cat \
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        -no-emul-boot -boot-load-size 4 -boot-info-table \
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        [-isohybrid-mbr &lt;isohdpfx.bin&gt;] \
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        staging/
+</span></code></pre></div>
+<p>If <code>isohdpfx.bin</code> is found, the ISO is also USB-bootable (BIOS).</p>
+<h4 id="iso-fedora-isobuildfedora"><code>iso</code> (Fedora — <code>iso.BuildFedora</code>)<a class="headerlink" href="#iso-fedora-isobuildfedora" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>mksquashfs rootfs staging/rootfs.squashfs -comp xz -no-xattrs -noappend
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>xorriso -as mkisofs \
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        -o &lt;out&gt;.iso \
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        -V DISTRORUN \
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        -b boot/grub2/i386-pc/eltorito.img \
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        -no-emul-boot -boot-load-size 4 -boot-info-table \
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        staging/
+</span></code></pre></div>
+<h4 id="disk-diskbuild"><code>disk</code> (<code>disk.Build</code>)<a class="headerlink" href="#disk-diskbuild" title="Permanent link">&para;</a></h4>
+<ol>
+<li><code>qemu-img create -f raw disk.img &lt;disk_size&gt;</code>.</li>
+<li><code>sfdisk</code> writes a single bootable ext4 partition (1 MB BIOS boot gap).</li>
+<li><code>losetup -fP --show disk.img</code> attaches a loop device.</li>
+<li><code>mkfs.ext4 -L DISTRORUN &lt;loopdev&gt;p1</code>.</li>
+<li><code>cp -a &lt;rootfs&gt;/. /mnt/</code>.</li>
+<li>Write <code>/etc/fstab</code> from the partition UUID.</li>
+<li>Bind-mount <code>/proc</code>, <code>/sys</code>, <code>/dev</code>, mount tmpfs on <code>/run</code>.</li>
+<li><code>chroot grub2-install --target=i386-pc &lt;loopdev&gt;</code> (BIOS only — no UEFI yet).</li>
+<li><code>chroot grub2-mkconfig -o /boot/grub2/grub.cfg</code>.</li>
+<li><code>qemu-img convert -f raw -O qcow2 disk.img &lt;out&gt;.qcow2</code>.</li>
+</ol>
+<h4 id="img-isobuildimg"><code>img</code> (<code>iso.BuildImg</code>)<a class="headerlink" href="#img-isobuildimg" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Build squashfs from rootfs.</li>
+<li>Compute boot-partition size = squashfs + kernel/initramfs + 512 MB headroom, rounded up.</li>
+<li><code>qemu-img create</code> → raw image of <code>boot + persist + 10 MB</code>.</li>
+<li><code>sfdisk</code> writes two partitions: bootable ext2 (<code>DISTRORUN_BOOT</code>) and ext4 (<code>DISTRORUN_PERS</code>).</li>
+<li>Loop-mount, format, copy squashfs + kernel + initramfs.</li>
+<li>Bind-mount pseudo-fs, run <code>grub2-install --target=i386-pc</code>, write <code>grub.cfg</code>.</li>
+<li>The result is a raw <code>.img</code> — <code>dd</code> it to a USB stick.</li>
+</ol>
+<hr />
+<h2 id="the-custom-live-cd-init">The custom live-CD init<a class="headerlink" href="#the-custom-live-cd-init" title="Permanent link">&para;</a></h2>
+<p><code>internal/rootfs/initramfs.go</code> defines <code>customInit</code> — a single shell script that replaces <code>/init</code> inside the initramfs (Alpine and Fedora ISO modes both use it).</p>
+<p>What it does:</p>
+<ol>
+<li><code>/bin/busybox --install -s</code> — populate symlinks for <code>mount</code>, <code>modprobe</code>, <code>sleep</code>, etc.</li>
+<li>Mount <code>devtmpfs</code>, <code>proc</code>, <code>sysfs</code>.</li>
+<li><code>modprobe</code> the modules needed to find a boot device: <code>loop</code>, <code>squashfs</code>, <code>isofs</code>, <code>overlay</code>, <code>sr_mod</code>, <code>cdrom</code>, <code>ata_piix</code>, <code>ahci</code>, <code>virtio_*</code>, <code>e1000</code>, etc.</li>
+<li>Scan <code>/dev/sr0</code>, <code>/dev/sd[ab]1</code>, <code>/dev/vda1</code>, <code>/dev/nvme0n1p1</code>, <code>/dev/sda</code>, <code>/dev/vda</code> for <code>rootfs.squashfs</code> (15-second timeout, 1 s polling).</li>
+<li>Mount the squashfs as <code>/lower</code> (read-only).</li>
+<li>Look for a <code>DISTRORUN_PERS</code>-labeled partition (<code>/dev/sda2</code>, <code>/dev/vda2</code>, etc.). If found, mount it and use it as the overlay upper layer (persistent). Otherwise, fall back to a tmpfs.</li>
+<li><code>mount -t overlay overlay -o lowerdir=/lower,upperdir=...,workdir=... /sysroot</code>.</li>
+<li>Move <code>/dev</code>, <code>/proc</code>, <code>/sys</code> into <code>/sysroot</code>.</li>
+<li><code>exec switch_root /sysroot /sbin/init</code>.</li>
+</ol>
+<p>This is exactly how Ubuntu, Fedora, and most live distros work — squashfs read-only + overlayfs writable upper.</p>
+<p><strong>Why patch the initramfs at all?</strong> Fedora's stock dracut initramfs assumes <code>root=</code> on the kernel cmdline points at a real disk partition. For a live CD it doesn't — we have to find the squashfs ourselves and build the overlay before handing off to systemd. Replacing <code>/init</code> is the cleanest way.</p>
+<hr />
+<h2 id="cleanup-safety">Cleanup safety<a class="headerlink" href="#cleanup-safety" title="Permanent link">&para;</a></h2>
+<p>The most dangerous operation in the codebase is rootfs cleanup. The <code>/dev</code> bind mount means the rootfs's <code>/dev</code> IS the host's <code>/dev</code>. Deleting the rootfs while <code>/dev</code> is still mounted destroys real device nodes (we have hit this — <code>/dev/null</code> had to be recreated with <code>mknod</code>).</p>
+<p>Order (in <code>main.go</code> and the cleanup methods):</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>1. Unmount()        — reads /proc/mounts, unmounts deepest-first
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>2. CleanupRootfs()  — clears /var/cache/{apk,dnf}, /dev/*
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>3. defer Cleanup(true) — removes the working dir; runs even on errors
+</span></code></pre></div>
+<p><code>CleanupRootfs</code> only clears <code>/dev/*</code> <em>after</em> <code>Unmount()</code> — that ordering is invariant.</p>
+<hr />
+<h2 id="ui-system-internalui">UI System (<code>internal/ui</code>)<a class="headerlink" href="#ui-system-internalui" title="Permanent link">&para;</a></h2>
+<p>Built on charmbracelet/lipgloss.</p>
+<p>Key components:</p>
+<ul>
+<li><code>StepHeader(step, total, msg)</code> — <code>[3/9]</code> badge + bold message.</li>
+<li><code>SubStep</code>, <code>Detail</code>, <code>URL</code>, <code>Info</code>, <code>InfoPath</code> — labeled lines.</li>
+<li><code>PackageItem(idx, total, name, version)</code> — <code>(3/28) nginx 1.26.3-r0</code>.</li>
+<li><code>ServiceItem</code>, <code>UserItem</code> — bullets for users/services.</li>
+<li><code>Spinner</code> — rotating Braille spinner (<code>⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏</code>) on stderr. Used during dnf/apk runs in non-debug mode. Frame rate 80 ms (12.5 fps); cleans its line on <code>Stop()</code>.</li>
+</ul>
+<p>Color palette:</p>
+<table>
+<thead>
+<tr>
+<th>Color</th>
+<th>Hex</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Teal</td>
+<td><code>#06b6d4</code></td>
+<td>step badges, arrows, accents</td>
+</tr>
+<tr>
+<td>Cyan</td>
+<td><code>#67e8f9</code></td>
+<td>values, package names</td>
+</tr>
+<tr>
+<td>Green</td>
+<td><code>#22c55e</code></td>
+<td>success checkmarks</td>
+</tr>
+<tr>
+<td>Red</td>
+<td><code>#ef4444</code></td>
+<td>error badges</td>
+</tr>
+<tr>
+<td>Yellow</td>
+<td><code>#eab308</code></td>
+<td>warnings, sizes</td>
+</tr>
+<tr>
+<td>Purple</td>
+<td><code>#a78bfa</code></td>
+<td>paths</td>
+</tr>
+<tr>
+<td>Dim</td>
+<td><code>#64748b</code></td>
+<td>labels, counters</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="packaging">Packaging<a class="headerlink" href="#packaging" title="Permanent link">&para;</a></h2>
+<h3 id="rpm-deb-nfpm">RPM / DEB (nfpm)<a class="headerlink" href="#rpm-deb-nfpm" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>make<span class="w"> </span>rpm<span class="w">    </span><span class="c1"># → distrorun-&lt;version&gt;.x86_64.rpm</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>make<span class="w"> </span>deb<span class="w">    </span><span class="c1"># → distrorun_&lt;version&gt;_amd64.deb</span>
+</span></code></pre></div>
+<p><code>nfpm.yaml</code> declares dependencies (<code>xorriso</code>, <code>squashfs-tools</code>) and recommends (<code>qemu-system-x86</code>, <code>syslinux</code>). Installs to <code>/usr/bin/distrorun</code> plus the man page at <code>/usr/share/man/man1/distrorun.1</code>.</p>
+<h3 id="man-page">Man page<a class="headerlink" href="#man-page" title="Permanent link">&para;</a></h3>
+<p>Groff format (<code>distrorun.1</code>). View with <code>man distrorun</code> after installing the package.</p>
+<hr />
+<h2 id="key-design-decisions">Key Design Decisions<a class="headerlink" href="#key-design-decisions" title="Permanent link">&para;</a></h2>
+<h3 id="why-chroot-instead-of-containers">Why chroot instead of containers?<a class="headerlink" href="#why-chroot-instead-of-containers" title="Permanent link">&para;</a></h3>
+<p>Containers (Docker/Podman) add a layer of abstraction we don't need. <code>chroot</code> is the same primitive used by <code>debootstrap</code>, <code>pacstrap</code>, Fedora's <code>mock</code>, and Alpine's <code>setup-disk</code>. It's simpler, faster, and produces identical results.</p>
+<h3 id="why-grub2-for-fedora-and-isolinux-for-alpine">Why GRUB2 for Fedora and ISOLINUX for Alpine?<a class="headerlink" href="#why-grub2-for-fedora-and-isolinux-for-alpine" title="Permanent link">&para;</a></h3>
+<p>ISOLINUX is dead-simple for BIOS-only CD-ROM booting and matches Alpine's own live ISO toolchain. Fedora's RPM ecosystem ships GRUB2 already, and <code>grub2-mkimage -O i386-pc-eltorito</code> produces a single boot image we can drop into the ISO without juggling separate <code>boot.cat</code> files. Both produce BIOS-only ISOs today; UEFI is on the roadmap.</p>
+<h3 id="why-overlayfs-for-live-cds">Why overlayfs for live CDs?<a class="headerlink" href="#why-overlayfs-for-live-cds" title="Permanent link">&para;</a></h3>
+<p>The ISO is read-only (ISO9660). We need writes (package installs at boot, log files, user state). Overlayfs layers a writable upper (tmpfs by default, or the <code>DISTRORUN_PERS</code> partition if present) on top of the read-only squashfs. Standard live-distro pattern.</p>
+<h3 id="why-dynamic-alpine-version-discovery">Why dynamic Alpine version discovery?<a class="headerlink" href="#why-dynamic-alpine-version-discovery" title="Permanent link">&para;</a></h3>
+<p>Alpine's CDN URL includes the exact version (<code>alpine-minirootfs-3.21.3-x86_64.tar.gz</code>). Hardcoded URLs 404 when patch versions roll forward. Parsing <code>latest-releases.yaml</code> always gets the current filename. The Fedora <code>releasever</code> is hardcoded for now because Fedora's archive structure is more stable per-release.</p>
+<h3 id="why-disable-selinux-on-fedora">Why disable SELinux on Fedora?<a class="headerlink" href="#why-disable-selinux-on-fedora" title="Permanent link">&para;</a></h3>
+<p>Fedora's targeted policy expects relabeled filesystems. Our cross-host build (<code>dnf --installroot</code> on a non-Fedora host, or even on Fedora with different policy versions) can produce contexts that don't match. Without <code>SELINUX=disabled</code>, first boot can hang in autorelabel. Disabling is a tradeoff — users who need SELinux can turn it back on inside the running system.</p>
+<h3 id="why-patch-the-initramfs-ourselves">Why patch the initramfs ourselves?<a class="headerlink" href="#why-patch-the-initramfs-ourselves" title="Permanent link">&para;</a></h3>
+<p>Stock dracut initramfs assumes <code>root=&lt;disk&gt;</code>. For a live CD we have to find <code>rootfs.squashfs</code> on whatever device we ended up booting from, build an overlay, then hand off to systemd. Patching <code>/init</code> is cleaner than maintaining a custom dracut module.</p>
+<hr />
+<h2 id="adding-a-new-base-distribution">Adding a new base distribution<a class="headerlink" href="#adding-a-new-base-distribution" title="Permanent link">&para;</a></h2>
+<p>The architecture is module-based. To add (say) Debian:</p>
+<ol>
+<li><strong><code>config/validate.go</code></strong> — allow <code>"debian"</code> in <code>distro.base</code> validation.</li>
+<li><strong><code>rootfs/debian.go</code></strong> (new) — implement <code>BootstrapDebian</code> / <code>BootstrapDebianDisk</code> mirroring <code>fedora.go</code>. Use <code>debootstrap</code> instead of <code>dnf --installroot</code>.</li>
+<li><strong><code>rootfs/packages.go</code></strong> — add a <code>r.distro == "debian"</code> branch using <code>apt-get install</code>.</li>
+<li><strong><code>rootfs/services.go</code></strong> — Debian uses systemd, so the <code>systemctl enable</code> branch already covers it.</li>
+<li><strong><code>rootfs/users.go</code></strong> — <code>useradd -G sudo</code> (Debian uses <code>sudo</code> group, not <code>wheel</code>).</li>
+<li><strong><code>bootloader/</code></strong> — reuse <code>grub.go</code> (Debian also uses GRUB2).</li>
+<li><strong><code>sbom/sbom.go</code></strong> — add a <code>dpkg-query -W</code> branch.</li>
+<li><strong><code>iso/build.go</code></strong> — reuse <code>BuildFedora</code> (it's distro-agnostic given the GRUB2 staging layout).</li>
+</ol>
+<p>Most of the "new distro" work is one new <code>&lt;distro&gt;.go</code> file in <code>internal/rootfs/</code>; the rest of the pipeline is generic.</p>
+<hr />
+<h2 id="running-tests">Running tests<a class="headerlink" href="#running-tests" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Unit tests (config validation)</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>go<span class="w"> </span><span class="nb">test</span><span class="w"> </span>./...
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Vet &amp; build</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>go<span class="w"> </span>vet<span class="w"> </span>./...<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>go<span class="w"> </span>build<span class="w"> </span>-o<span class="w"> </span>distrorun<span class="w"> </span>.
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># Full integration: build + boot</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>sudo<span class="w"> </span>./distrorun<span class="w"> </span>build<span class="w"> </span>sample.distrorun.yaml
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>./distrorun<span class="w"> </span><span class="nb">test</span><span class="w"> </span>my-alpine-server.iso<span class="w"> </span>-r<span class="w"> </span><span class="m">1024</span>
+</span></code></pre></div>
+<p>For a Fedora workstation daily-driver VM:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>./distrorun<span class="w"> </span>build<span class="w"> </span>fedora.distrorun.yaml<span class="w">      </span><span class="c1"># → MyOS.qcow2 (when build.output: disk)</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1"># Then: virt-manager → import existing disk → MyOS.qcow2 → BIOS firmware</span>
+</span></code></pre></div>
+<hr />
+<h2 id="environment-requirements">Environment requirements<a class="headerlink" href="#environment-requirements" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Minimum</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Go</td>
+<td>1.25+</td>
+<td><code>gopkg.in/yaml.v3</code>, <code>lipgloss</code></td>
+</tr>
+<tr>
+<td>OS</td>
+<td>Linux (x86_64)</td>
+<td><code>chroot</code>, <code>mount</code>, <code>losetup</code> are Linux-only</td>
+</tr>
+<tr>
+<td>Privileges</td>
+<td>root</td>
+<td>required for <code>build</code></td>
+</tr>
+<tr>
+<td>Disk space</td>
+<td>1.5 GB</td>
+<td>Alpine ISO; ~6–8 GB for Fedora workstation qcow2</td>
+</tr>
+<tr>
+<td>RAM (host)</td>
+<td>1 GB+</td>
+<td>XZ squashfs is memory-hungry on large rootfs</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="./.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Installation">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Installation
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../run/" class="md-footer__link md-footer__link--next" aria-label="Next: CLI Reference">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                CLI Reference
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 The authors
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5fcf0de6.min.js"></script>
+      
+    
+  </body>
+</html>
